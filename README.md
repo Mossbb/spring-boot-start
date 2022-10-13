@@ -1,31 +1,26 @@
 ## 项目名称
 > 快速创建spring boot项目,包含一些基础依赖和代码规范
 
+## 项目说明
+> 项目整合了mybatis/redisTemplate以及完善了相关的配置类,修改各个环境的application.properties,将mysql和redis连接信息补充完整<br/>
+> 项目整合了logback日志,有需求修改logback-spring.xml文件即可
 
-## 运行条件
-> 列出运行该项目所必须的条件和相关依赖  
-* 条件一
-* 条件二
-* 条件三
+## 子模块说明
+> api:对外提供RPC接口<br/>
+> common:本工程用到的一些通用方法其中包含utils等等<br/>
+> dao:数据库交互层<br/>
+> manager:数据逻辑层<br/>
+> remote:远程调用服务,包含RPC调用以及一些三方调用服务统一入口<br/>
+> service:系统逻辑层<br/>
+> web:controller层<br/>
 
-
-
-## 运行说明
-> 说明如何运行和使用你的项目，建议给出具体的步骤说明
-* 操作一
-* 操作二
-* 操作三  
-
-
-
-## 测试说明
-> 如果有测试相关内容需要说明，请填写在这里  
-
-
-
-## 技术架构
-> 使用的技术框架或系统架构图等相关说明，请填写在这里  
+## 子模块依赖说明
+> api:不依赖任何子模块,对外提供二方包也只打包这个模块<br/>
+> common:不依赖任何子模块<br/>
+> dao:不依赖任何子模块<br/>
+> manager:依赖dao,common层<br/>
+> remote:依赖common层<br/>
+> service:依赖api,common,manager,remote层<br/>
+> web:依赖service层<br/>
 
 
-## 协作者
-> 高效的协作会激发无尽的创造力，将他们的名字记录在这里吧
