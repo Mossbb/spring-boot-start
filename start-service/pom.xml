@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>start</artifactId>
+        <groupId>com.ryytn.start</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>start-service</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ryytn.start</groupId>
+            <artifactId>start-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ryytn.start</groupId>
+            <artifactId>start-manager</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.ryytn.start</groupId>
+                    <artifactId>start-dao</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.ryytn.start</groupId>
+            <artifactId>start-remote</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ryytn.start</groupId>
+            <artifactId>start-api</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>
