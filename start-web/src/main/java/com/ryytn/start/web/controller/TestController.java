@@ -1,6 +1,6 @@
 package com.ryytn.start.web.controller;
 
-import com.ryytn.sm.common.Result;
+import com.ryytn.start.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

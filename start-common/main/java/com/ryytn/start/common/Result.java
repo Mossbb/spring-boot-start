@@ -1,4 +1,4 @@
-package com.ryytn.sm.common;
+package com.ryytn.start.common;
 
 import java.io.Serializable;
 

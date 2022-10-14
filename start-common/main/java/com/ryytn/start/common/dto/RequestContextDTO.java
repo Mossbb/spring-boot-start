@@ -1,4 +1,4 @@
-package com.ryytn.sm.common.dto;
+package com.ryytn.start.common.dto;
 
 import lombok.Data;
 

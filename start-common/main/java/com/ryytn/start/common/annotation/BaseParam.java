@@ -1,4 +1,4 @@
-package com.ryytn.sm.common.annotation;
+package com.ryytn.start.common.annotation;
 
 import java.lang.annotation.*;
 

@@ -1,7 +1,7 @@
-package com.ryytn.sm.common;
+package com.ryytn.start.common;
 
 
-import com.ryytn.sm.common.enums.ErrorBaseEnum;
+import com.ryytn.start.common.enums.ErrorBaseEnum;
 
 /**
  * <p>基础exception</p>
