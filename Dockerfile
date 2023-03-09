@@ -2,7 +2,7 @@ FROM --platform=linux/amd64 registry.cn-hangzhou.aliyuncs.com/ryytn-r3-uat/openj
 COPY start-web/target/start-web.jar /home/admin/start-web.jar
 
 EXPOSE 8080
-ENV APP_NAME=start
+ENV APP_NAME=start-web
 ## 环境变量
 ENV APP_PROFILE=online
 
