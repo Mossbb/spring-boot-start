@@ -35,12 +35,6 @@
         <dependency>
             <groupId>com.ryytn.start</groupId>
             <artifactId>start-manager</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.ryytn.start</groupId>
-                    <artifactId>start-dao</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.ryytn.start</groupId>
