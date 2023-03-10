@@ -1,0 +1,11 @@
+### datasource
+spring:
+  datasource:
+    url: todo
+    username: todo
+    password: todo
+  redis:
+    url: todo
+    host: todo
+    port: 6379
+    database: 0

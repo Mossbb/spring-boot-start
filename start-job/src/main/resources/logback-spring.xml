@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="pattern">%d [%t] %-5p [applicationName] [%traceId] %c : %m%n</Property>
+        <Property name="logDir">./logs</Property>
+    </Properties>
+
+    <Appenders>
+        <!--控制台输出源-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+        <!-- 日志默认输出源，每日生成一份，保留7天，自动压缩 -->
+        <RollingFile name="INFO" fileName="${logDir}/info.log"
+                     filePattern="${logDir}/info-%d{YYYY-MM-dd}.log.gz" filePermissions="rw-r--r--">
+            <PatternLayout pattern="${pattern}"/>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" maxRandomDelay="0"/>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+        <!-- 错误日志输出源，每日生成一份，保留7天，自动压缩 -->
+        <RollingFile name="ERROR" fileName="${logDir}/error.log"
+                     filePattern="${logDir}/error-%d{YYYY-MM-dd}.log.gz" filePermissions="rw-r--r--">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMisMatch="DENY"/>
+            <PatternLayout pattern="${pattern}"/>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" maxRandomDelay="0"/>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- mybatis logger -->
+        <Logger name="dao" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.mybatis" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="INFO"/>
+            <AppenderRef ref="ERROR"/>
+        </root>
+    </Loggers>
+</Configuration>

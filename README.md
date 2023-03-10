@@ -31,6 +31,6 @@
 
 > controller/api层返回接口统一用com.ryytn.start.common.Result封装返回
 > 分页使用Result<PaginationResult<T>>返回
-> 业务异常直接抛出com.ryytn.start.common.BizException
+> 业务异常直接抛出com.ryytn.start.com.ryytn.start.common.BizException
 
 
