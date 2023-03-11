@@ -1,17 +1,19 @@
 package com.ryytn.start.common.enums;
 
+import lombok.Getter;
+
 /**
  * <p>异常枚举</p>
  *
  * @author yinxin
  * @since 2022/10/14
  */
+@Getter
 public enum BizExceptionEnums implements ErrorBaseEnum {
     /**
      * 系统基础错误 0-200
      */
     NET_WORK_ERROR(0, "NET_WORK_ERROR", "网络错误,请稍后重试", "网络错误,请稍后重试", "network error, please try again later"),
-
     PARAMS_ERROR(100, "PARAMS_ERROR", "参数错误", "参数错误", "params error"),
     ;
 
@@ -39,11 +41,11 @@ public enum BizExceptionEnums implements ErrorBaseEnum {
     /**
      * 错误码
      */
-    private Integer errorCode;
+    private final Integer errorCode;
     /**
      * 错误key 多语言使用
      */
-    private String errorKey;
+    private final String errorKey;
     /**
      * 错误消息
      */
@@ -57,41 +59,6 @@ public enum BizExceptionEnums implements ErrorBaseEnum {
      */
     private String enMsg;
 
-    public Integer getErrorCode() {
-        return errorCode;
-    }
-
-    public void setErrorCode(Integer errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public String getErrorKey() {
-        return errorKey;
-    }
-
-    public void setErrorKey(String errorKey) {
-        this.errorKey = errorKey;
-    }
-
-    public String getErrorMsg() {
-        return errorMsg;
-    }
-
-    public String getCnMsg() {
-        return cnMsg;
-    }
-
-    public void setCnMsg(String cnMsg) {
-        this.cnMsg = cnMsg;
-    }
-
-    public String getEnMsg() {
-        return enMsg;
-    }
-
-    public void setEnMsg(String enMsg) {
-        this.enMsg = enMsg;
-    }
 
     @Override
     public Integer getCode() {
