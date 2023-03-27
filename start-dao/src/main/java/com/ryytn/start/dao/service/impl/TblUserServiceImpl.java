@@ -7,13 +7,13 @@ import com.ryytn.start.dao.service.TblUserService;
 import org.springframework.stereotype.Service;
 
 /**
-* @author xuxukang
-* @description 针对表【tbl_user】的数据库操作Service实现
-* @createDate 2023-03-10 11:29:23
-*/
+ * @author xuxukang
+ * @description 针对表【tbl_user】的数据库操作Service实现
+ * @createDate 2023-03-10 11:29:23
+ */
 @Service
 public class TblUserServiceImpl extends ServiceImpl<TblUserMapper, TblUser>
-    implements TblUserService{
+    implements TblUserService {
 
 }
 

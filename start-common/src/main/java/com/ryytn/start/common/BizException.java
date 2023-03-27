@@ -1,6 +1,8 @@
 package com.ryytn.start.common;
 
 
+import cn.hutool.core.util.StrUtil;
+import com.ryytn.start.common.enums.BizExceptionEnums;
 import com.ryytn.start.common.enums.ErrorBaseEnum;
 
 /**
@@ -10,57 +12,41 @@ import com.ryytn.start.common.enums.ErrorBaseEnum;
  * @since 2022/5/18
  */
 public class BizException extends RuntimeException {
-    private static final long serialVersionUID = -8641213350581044979L;
-    protected Integer errorCode;
-    protected String errorKey;
-    protected String errorMsg = "SYSTEM_ERROR";
 
-    public BizException() {
-    }
+  private static final long serialVersionUID = -8641213350581044979L;
 
-    public BizException(String message, Throwable cause) {
-        super(message, cause);
-        errorMsg = message;
-    }
+  protected ErrorBaseEnum error;
 
-    public BizException(String message) {
-        super(message);
-        errorMsg = message;
-    }
+  public BizException(ErrorBaseEnum error) {
+    super(error.getDefaultMsg());
+    this.error = error;
+  }
 
-    public BizException(Throwable cause) {
-        super(cause);
-        errorCode = 500;
-        errorMsg = cause.getMessage();
-    }
+  public BizException(Throwable throwable) {
+    super(BizExceptionEnums.SYSTEM_ERROR.getDefaultMsg(), throwable);
+    this.error = BizExceptionEnums.SYSTEM_ERROR;
+  }
 
-    public BizException(ErrorBaseEnum enums) {
-        super(enums.getKey());
-        errorCode = enums.getCode();
-        errorKey = enums.getKey();
-    }
+  public BizException(ErrorBaseEnum error, String msg) {
+    super(StrUtil.isBlank(msg) ? error.getDefaultMsg() : msg);
+    this.error = error;
+  }
 
-    public BizException(Integer errorCode, String errorKey, String message) {
-        super(message);
-        this.errorKey = errorKey;
-        this.errorCode = errorCode;
-        errorMsg = message;
-    }
+  public BizException(ErrorBaseEnum error, String msg, Throwable cause) {
+    super(StrUtil.isBlank(msg) ? error.getDefaultMsg() : msg, cause);
+    this.error = error;
+  }
 
-    public Integer getCode() {
-        return errorCode;
-    }
+  public Integer getErrorCode() {
+    return error.getCode();
+  }
 
-    public String getErrorKey() {
-        return errorKey;
-    }
+  public String getErrorKey() {
+    return error.getKey();
+  }
 
-    public String getErrorMsg() {
-        return errorMsg;
-    }
+  public String getErrorMsg() {
+    return error.getDefaultMsg();
+  }
 
-    @Override
-    public String toString() {
-        return "BaseException [errorCode=" + errorCode + ", errorMsg=" + errorMsg + "]";
-    }
 }
