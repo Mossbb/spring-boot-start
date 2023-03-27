@@ -41,4 +41,12 @@
 > 4. 废弃druid框架，使用hikari框架
 > 5. http远程调用工具统一使用forest框架，参考[Forest:声明式HTTP客户端框架](https://forest.dtflyx.com/)
 
+### 2023.03.27
+> 1. springboot版本从2.4.13降至2.4.2（为了配合Nacos版本兼容问题）
+> 2. 规范业务异常类型，code限制为7种类型，避免滥用（参考：BizExceptionEnums）
+> 3. 规范redis中key的使用规范（参考：RedisKeyEnum、TestController）
+> 4. 集成Nacos，所有需变更配置迁移至Nacos（动态配置参考：DynamicConfig，配置变更监听参考：NacosCommonConfigListener & NacosConfig）
+> 5. 添加统一业务实现入口（参考：AbstractAction）
+> 6. 开启SpringUtil的支持，参考：EnableSpringUtil
+
 
