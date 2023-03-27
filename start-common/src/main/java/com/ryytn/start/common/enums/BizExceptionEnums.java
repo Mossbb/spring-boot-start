@@ -1,5 +1,6 @@
 package com.ryytn.start.common.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -9,64 +10,48 @@ import lombok.Getter;
  * @since 2022/10/14
  */
 @Getter
+@AllArgsConstructor
 public enum BizExceptionEnums implements ErrorBaseEnum {
-    /**
-     * 系统基础错误 0-200
-     */
-    NET_WORK_ERROR(0, "NET_WORK_ERROR", "网络错误,请稍后重试", "网络错误,请稍后重试", "network error, please try again later"),
-    PARAMS_ERROR(100, "PARAMS_ERROR", "参数错误", "参数错误", "params error"),
-    ;
+  /**
+   * 【不允许设置其他code，自定义扩展ErrorBaseEnum的也只能使用这几个异常码】 成功 - 0 参数错误 - 100 网络错误 - 200 三方服务异常 - 300 权限异常 -
+   * 400 已知业务异常 - 500（比如各种校验等） 系统异常 - 999
+   */
+  SUCCESS(0, "成功", "Success"),
+  PARAMS_ERROR(100, "参数错误，请重新确认", "Parameter error, please reconfirm"),
+  NET_WORK_ERROR(200, "网络错误，请稍后重试", "Network error. Please try again later."),
+  REMOTE_SERVER_ERROR(300, "三方服务异常，请稍后重试",
+      "Three-party service is abnormal. Please try again later."),
+  AUTH_ERROR(400, "权限异常，请找管理员确认",
+      "Permission exception, please check with the administrator"),
+  BUSINESS_ERROR(500, "业务异常，请找相关产品确认",
+      "Business exception, please find the relevant product to confirm"),
+  SYSTEM_ERROR(999, "系统异常，请稍后重试", "The system is abnormal, please try again later"),
+  ;
 
-    BizExceptionEnums(Integer errorCode, String errorKey, String errorMsg) {
-        this.errorCode = errorCode;
-        this.errorKey = errorKey;
-        this.errorMsg = errorMsg;
-    }
+  /**
+   * 错误码
+   */
+  private final Integer code;
+  /**
+   * 中文错误信息
+   */
+  private final String cnMsg;
+  /**
+   * 英文错误信息
+   */
+  private final String enMsg;
 
-    BizExceptionEnums(Integer errorCode, String errorKey, String errorMsg, String cnMsg, String enMsg) {
-        this.errorCode = errorCode;
-        this.errorKey = errorKey;
-        this.errorMsg = errorMsg;
-        this.cnMsg = cnMsg;
-        this.enMsg = enMsg;
-    }
+  @Override
+  public String getKey() {
+    return this.name();
+  }
 
-    BizExceptionEnums(Integer errorCode, String errorKey, String cnMsg, String enMsg) {
-        this.errorCode = errorCode;
-        this.errorKey = errorKey;
-        this.cnMsg = cnMsg;
-        this.enMsg = enMsg;
-    }
+  @Override
+  public String getDefaultMsg() {
+    return getCnMsg();
+  }
 
-    /**
-     * 错误码
-     */
-    private final Integer errorCode;
-    /**
-     * 错误key 多语言使用
-     */
-    private final String errorKey;
-    /**
-     * 错误消息
-     */
-    private String errorMsg;
-    /**
-     * 中文错误消息
-     */
-    private String cnMsg;
-    /**
-     * 英文错误消息
-     */
-    private String enMsg;
-
-
-    @Override
-    public Integer getCode() {
-        return getErrorCode();
-    }
-
-    @Override
-    public String getKey() {
-        return errorKey;
-    }
+  public String getEnMsg() {
+    return enMsg;
+  }
 }

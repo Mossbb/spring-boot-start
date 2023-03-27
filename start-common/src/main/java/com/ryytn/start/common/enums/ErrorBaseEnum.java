@@ -7,7 +7,19 @@ package com.ryytn.start.common.enums;
  * @since 2022/10/14
  */
 public interface ErrorBaseEnum {
-    Integer getCode();
 
-    String getKey();
+  /**
+   * @return 错误码
+   */
+  Integer getCode();
+
+  /**
+   * @return 错误标志
+   */
+  String getKey();
+
+  /**
+   * @return 默认错误信息
+   */
+  String getDefaultMsg();
 }
