@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
-        <Property name="pattern">%d [%t] %-5p [applicationName] [%traceId] %c : %m%n</Property>
-        <Property name="logDir">/data/logs</Property>
+        <Property name="pattern">%d [%t] %-5p %c : %m%n</Property>
+        <Property name="logDir">./logs/start-web</Property>
     </Properties>
 
     <Appenders>

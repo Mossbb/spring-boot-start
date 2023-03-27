@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.ryytn")
 public class JobApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(JobApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(JobApplication.class, args);
+  }
 }

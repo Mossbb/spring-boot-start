@@ -4,11 +4,17 @@ spring:
   application:
     name: start
   profiles:
-    active: ${ENV:dev}
+    active: ${spring.profile:dev}
   servlet:
     multipart:
       max-file-size: 256MB
       max-request-size: 256MB
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -40,5 +46,27 @@ spring:
         max-idle: 16
         min-idle: 0
         max-wait: -1ms
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: ${nacos.addr:127.0.0.1:8848}
+        username: ${nacos.username:nacos}
+        password: ${nacos.password:nacos}
+        # 使用自定义空间时需要使用MD5的ID
+        namespace: ${nacos.namespace:public}
+        group: ${spring.application.name:DEFAULT_GROUP}
+        max-retry: 3
+        config-long-poll-timeout: 10000
+        extension-configs:
+          - data-id: dynamic.yaml
+            group: start
+            refresh: true
+          - data-id: mysql.yaml
+            group: start
+            refresh: false
+          - data-id: common.yaml
+            group: common
+            refresh: true
 logging:
   config: classpath:logback-spring.xml

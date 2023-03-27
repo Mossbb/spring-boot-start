@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test;
 @Slf4j
 public class CommonTests {
 
-    @Test
-    public void testHutoolNetUtil() {
-        String localhostStr = NetUtil.getLocalhostStr();
-        System.out.println(localhostStr);
-    }
+  @Test
+  public void testHutoolNetUtil() {
+    String localhostStr = NetUtil.getLocalhostStr();
+    System.out.println(localhostStr);
+  }
 
 }
