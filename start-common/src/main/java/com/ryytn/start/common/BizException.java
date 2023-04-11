@@ -1,9 +1,8 @@
 package com.ryytn.start.common;
 
 
-import cn.hutool.core.util.StrUtil;
-import com.ryytn.start.common.enums.BizExceptionEnums;
 import com.ryytn.start.common.enums.ErrorBaseEnum;
+import lombok.Getter;
 
 /**
  * <p>基础exception</p>
@@ -15,38 +14,17 @@ public class BizException extends RuntimeException {
 
   private static final long serialVersionUID = -8641213350581044979L;
 
+  @Getter
   protected ErrorBaseEnum error;
 
   public BizException(ErrorBaseEnum error) {
-    super(error.getDefaultMsg());
+    super(error.getKey());
     this.error = error;
   }
 
-  public BizException(Throwable throwable) {
-    super(BizExceptionEnums.SYSTEM_ERROR.getDefaultMsg(), throwable);
-    this.error = BizExceptionEnums.SYSTEM_ERROR;
-  }
-
-  public BizException(ErrorBaseEnum error, String msg) {
-    super(StrUtil.isBlank(msg) ? error.getDefaultMsg() : msg);
+  public BizException(ErrorBaseEnum error, Throwable cause) {
+    super(error.getKey(), cause);
     this.error = error;
-  }
-
-  public BizException(ErrorBaseEnum error, String msg, Throwable cause) {
-    super(StrUtil.isBlank(msg) ? error.getDefaultMsg() : msg, cause);
-    this.error = error;
-  }
-
-  public Integer getErrorCode() {
-    return error.getCode();
-  }
-
-  public String getErrorKey() {
-    return error.getKey();
-  }
-
-  public String getErrorMsg() {
-    return error.getDefaultMsg();
   }
 
 }

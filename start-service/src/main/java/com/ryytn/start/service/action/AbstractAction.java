@@ -8,9 +8,10 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.log.Log;
 import com.alibaba.fastjson.JSON;
 import com.ryytn.start.common.BizException;
-import com.ryytn.start.common.enums.BizExceptionEnums;
+import com.ryytn.start.common.enums.BaseBizExceptionEnums;
 import com.ryytn.start.manager.config.DynamicConfig;
 import java.util.Objects;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,11 +23,8 @@ public abstract class AbstractAction<Req, Resp> {
 
   private static final Log log = Log.get();
 
-  private final DynamicConfig dynamicConfig;
-
-  public AbstractAction(DynamicConfig dynamicConfig) {
-    this.dynamicConfig = dynamicConfig;
-  }
+  @Autowired
+  private DynamicConfig dynamicConfig;
 
   /**
    * 某个方法具体调用逻辑
@@ -67,7 +65,7 @@ public abstract class AbstractAction<Req, Resp> {
 
     try {
       if (dynamicConfig.isServerUpgrading()) {
-        throw new BizException(BizExceptionEnums.SYSTEM_ERROR);
+        throw new BizException(BaseBizExceptionEnums.SYSTEM_ERROR);
       }
 
       preCheck(request);
