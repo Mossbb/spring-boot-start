@@ -18,8 +18,4 @@ public interface ErrorBaseEnum {
    */
   String getKey();
 
-  /**
-   * @return 默认错误信息
-   */
-  String getDefaultMsg();
 }
