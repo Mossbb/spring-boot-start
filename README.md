@@ -49,4 +49,8 @@
 > 5. 添加统一业务实现入口（参考：AbstractAction）
 > 6. 开启SpringUtil的支持，参考：EnableSpringUtil
 
-
+### 2023.04.11
+> 1. 添加全局异常处理（参考：GlobalExceptionConfig），并且基础异常类型及自定义异常编码扩展（参考：ErrorBaseEnum）
+> 2. 支持i18n（参考：MessageUtil & LocaleConfig & validation_zh.properties）
+> 3. 添加相关参数异常校验案例（参考：UserAddOrUpdateReq）
+> 4. 添加Action执行模式，确保service代码清晰，方便抽象（参考：AbstractAction）
