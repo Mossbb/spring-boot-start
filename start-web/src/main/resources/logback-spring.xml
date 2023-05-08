@@ -32,7 +32,7 @@
         <Logger name="dao" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.mybatis" level="info" additivity="false">
+        <Logger name="org.mybatis" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
 
