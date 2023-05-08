@@ -70,3 +70,6 @@ spring:
             refresh: true
 logging:
   config: classpath:logback-spring.xml
+jasypt:
+  encryptor:
+    password: Ryytn!123456

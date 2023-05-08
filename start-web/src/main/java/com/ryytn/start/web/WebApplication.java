@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @since 2020-10-13
  */
 @SpringBootApplication(scanBasePackages = "com.ryytn.start")
-@MapperScan(basePackages = "com.ryytn.start.dao")
+@MapperScan(basePackages = "com.ryytn.start.dao.mapper")
 @EnableConfigurationProperties
 @EnableSpringUtil
 public class WebApplication {

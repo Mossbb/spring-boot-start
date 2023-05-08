@@ -5,7 +5,7 @@ import com.ryytn.start.dao.domain.TblUser;
 import com.ryytn.start.dao.service.TblUserService;
 import com.ryytn.start.manager.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.service.action.AbstractAction;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,15 +17,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddOrUpdateUser extends AbstractAction<UserAddOrUpdateReq, Boolean> {
 
-  @Autowired
+  @Resource
   private TblUserService tblUserService;
 
   @Override
   protected Boolean doInvoke(UserAddOrUpdateReq request) {
     TblUser tblUser = new TblUser();
     BeanUtil.copyProperties(request, tblUser, true);
-    boolean saveOrUpdate = tblUserService.saveOrUpdate(tblUser);
-    return saveOrUpdate;
+
+//    if (Objects.isNull(tblUser.getId())) {
+//      tblUserMapper.insert(tblUser);
+//    } else {
+//      tblUserMapper.updateById(tblUser);
+//    }
+
+    return tblUserService.saveOrUpdate(tblUser);
   }
 
   @Override
