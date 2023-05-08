@@ -54,3 +54,8 @@
 > 2. 支持i18n（参考：MessageUtil & LocaleConfig & validation_zh.properties）
 > 3. 添加相关参数异常校验案例（参考：UserAddOrUpdateReq）
 > 4. 添加Action执行模式，确保service代码清晰，方便抽象（参考：AbstractAction）
+
+### 2023.05.08
+> 1. web项目添加jasypt加密配置，加密nacos中的数据库、动态配置等配置，具体参考
+> 2. 新增LikeEscapeInterceptor、PaginationInnerInterceptor、MyMetaObjectHandler等mybatis拦截器，用于like关键字转义以及分页
+> 3. 修改@MapperScan扫描路径，否则会导致Mapper接口代理无效
