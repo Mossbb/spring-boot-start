@@ -59,3 +59,7 @@
 > 1. web项目添加jasypt加密配置，加密nacos中的数据库、动态配置等配置，具体参考
 > 2. 新增LikeEscapeInterceptor、PaginationInnerInterceptor、MyMetaObjectHandler等mybatis拦截器，用于like关键字转义以及分页
 > 3. 修改@MapperScan扫描路径，否则会导致Mapper接口代理无效
+
+### 2023.05.12
+> 1. 拆分bootstrap.yml部分配置内容至application.yml，只保留springcloud部分配置
+> 2. 集成dubbo2.7.23，完善dubbo相关starter配置和注释，添加dubbo service和reference的测试（具体参考DubboUserService）
