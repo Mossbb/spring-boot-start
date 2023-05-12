@@ -1,51 +1,4 @@
-server:
-  port: 8080
 spring:
-  application:
-    name: start
-  profiles:
-    active: ${spring.profile:dev}
-  servlet:
-    multipart:
-      max-file-size: 256MB
-      max-request-size: 256MB
-  main:
-    allow-bean-definition-overriding: true
-  jackson:
-    default-property-inclusion: non_null
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: true
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      auto-commit: true
-      minimum-idle: 5
-      maximum-pool-size: 20
-      connection-timeout: 20000
-      idle-timeout: 300000
-      max-lifetime: 900000
-      connection-test-query: select 1 from dual
-      pool-name: HikariPool
-      data-source-properties:
-        cachePrepStmts: true
-        prepStmtCacheSize: 250
-        prepStmtCacheSqlLimit: 2048
-        useServerPrepStmts: true
-        useLocalSessionState: true
-        rewriteBatchedStatements: true
-        cacheResultSetMetadata: true
-        cacheServerConfiguration: true
-        elideSetAutoCommits: true
-        maintainTimeStats: false
-  redis:
-    timeout: 3000
-    jedis:
-      pool:
-        max-active: 16
-        max-idle: 16
-        min-idle: 0
-        max-wait: -1ms
   cloud:
     nacos:
       config:
@@ -68,8 +21,3 @@ spring:
           - data-id: common.yaml
             group: common
             refresh: true
-logging:
-  config: classpath:logback-spring.xml
-jasypt:
-  encryptor:
-    password: Ryytn!123456
