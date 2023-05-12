@@ -1,4 +1,4 @@
-package com.ryytn.start.manager.dto.request;
+package com.ryytn.start.common.dto.request;
 
 import java.io.Serializable;
 import javax.validation.constraints.NotBlank;

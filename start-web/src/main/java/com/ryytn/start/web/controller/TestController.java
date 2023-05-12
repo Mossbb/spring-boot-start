@@ -2,9 +2,9 @@ package com.ryytn.start.web.controller;
 
 import com.alibaba.fastjson2.JSON;
 import com.ryytn.start.common.Result;
+import com.ryytn.start.common.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.common.enums.RedisKeyEnum;
 import com.ryytn.start.manager.config.DynamicConfig;
-import com.ryytn.start.manager.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.service.entrance.UserService;
 import java.time.Duration;
 import javax.annotation.Resource;
