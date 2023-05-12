@@ -1,6 +1,7 @@
 package com.ryytn.start.web.controller;
 
 import com.alibaba.fastjson2.JSON;
+import com.ryytn.start.api.service.DubboUserService;
 import com.ryytn.start.common.Result;
 import com.ryytn.start.common.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.common.enums.RedisKeyEnum;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -47,6 +49,9 @@ public class TestController {
   @Autowired
   private UserService userService;
 
+  @DubboReference(version = "1.0.0", interfaceClass = DubboUserService.class)
+  private DubboUserService dubboUserService;
+
   @RequestMapping("/test/status")
   @ResponseBody
   public Result<String> doTest(HttpServletRequest request, HttpServletResponse response) {
@@ -65,7 +70,7 @@ public class TestController {
 
   @PostMapping("/test/user/post")
   public Result<Boolean> doPostUser(@Validated @Valid @RequestBody UserAddOrUpdateReq req) {
-    boolean b = userService.addOrUpdateUser(req);
+    boolean b = dubboUserService.addOrUpdateUser(req);
     return Result.buildSuccess(b);
   }
 }

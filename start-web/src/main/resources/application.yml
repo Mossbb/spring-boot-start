@@ -56,12 +56,22 @@ dubbo:
     name: ${spring.application.name}
     qos-enable: false
   protocol:
-    threadpool: cached
+    threadpool: fixed
+    threads: 200
+    # netty、netty3
+    transporter: netty
+    # HeaderExchanger
+    exchanger: header
+    # all、direct、message、connection、header
+    dispatcher: message
   scan:
     base-packages: com.ryytn.start.service.entrance
   registry:
     id: ${spring.application.name}-registry
     address: nacos://${nacos.addr:127.0.0.1:8848}
     group: ${spring.application.name}
-    username: nacos
-    password: nacos
+    username: ${nacos.username:nacos}
+    password: ${nacos.password:nacos}
+  consumer:
+    check: false
+    lazy: true
