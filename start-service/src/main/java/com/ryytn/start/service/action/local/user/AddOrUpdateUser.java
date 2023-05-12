@@ -1,9 +1,9 @@
 package com.ryytn.start.service.action.local.user;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.ryytn.start.common.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.dao.domain.TblUser;
 import com.ryytn.start.dao.service.TblUserService;
-import com.ryytn.start.manager.dto.request.UserAddOrUpdateReq;
 import com.ryytn.start.service.action.AbstractAction;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
